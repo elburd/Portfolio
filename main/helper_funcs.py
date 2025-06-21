@@ -56,13 +56,18 @@ def get_project_list() -> list[tuple[str]]:
     The ``tuples`` include the project's name, upload date,
     and completion completed as ``strings``.
     '''
-    proj_list: list[tuple[str]] = []
     try:
-        with open('project-data.txt') as file:
-            for line in file:
-                if '//' in line:
-                    continue
-                name, upload, completed = line.split()
-                project = name.replace('-', ' ').capitalize(), _format_date(upload), completed
-                proj_list.append(project)
-    except Exception
+        open('project-data.txt')
+    except FileNotFoundError:
+        return [('FileError', 'FileError', 'FileError')]
+    
+    proj_list: list[tuple[str]] = []
+    with open('project-data.txt') as file:
+        for line in file:
+            if '//' in line:
+                # Commented line
+                continue
+            name, upload, completed = line.split()
+            project = name.replace('-', ' ').capitalize(), _format_date(upload), completed
+            proj_list.append(project)
+    return proj_list
