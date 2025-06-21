@@ -1,0 +1,4 @@
+// Format: Project-name Upload-date Completion-status
+// Example: Some-project ddmmyy Completed/Ongoing
+// Absolutely NO whitespace!
+Calculator 170625 Completed

@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+
+{% block title %}Projects{% endblock %}
+
+{% block stylesheet %}{{url_for('static', filename='styles/projects.css')}}{% endblock %}
+
+{% block content %}
+<div id="upper-container">
+  <p>Project list</p>
+  <button id="add-project-button">+</button>
+</div>
+<div id="project-container">
+  <ul>
+    {% for project in proj_list %}
+    <li>
+      <a class="project-anchor" href="{{url_for('project_page', proj_name=project[0])}}"><b>{{project[0]}}</b></a>
+      <p>Uploaded on {{project[1]}}</p>
+      <p id="status-{{project[0]}}">Status: {{project[2]}}</p>
+      <button id="toggle-status-button" onclick="toggleStatus('{{project[0]}}')">Toggle</button>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+  function toggleStatus(name) {
+    const statusElement = document.getElementById('status-' + name);
+    if (statusElement.innerHTML === 'Status: Completed') {
+      statusElement.innerHTML = 'Status: Ongoing';
+    }
+    else {
+      statusElement.innerHTML = 'Status: Completed';
+    }
+  }
+</script>
+{% endblock %}
+

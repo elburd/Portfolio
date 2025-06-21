@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculator</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='styles/project-calculator.css') }}">
+	</head>
+	<body>
+		<div id="container">
+			<input id="screen" placeholder="Type here"
+			onblur="this.focus()"
+			onkeydown="event.key === 'Enter' && showResult()">
+			<div id="button-container">
+			<div id="number-container">
+				<button class="calc-button" onclick="pushValue(1)">1</button>
+				<button class="calc-button" onclick="pushValue(2)">2</button>
+				<button class="calc-button" onclick="pushValue(3)">3</button>
+				<button class="calc-button" onclick="pushValue(4)">4</button>
+				<button class="calc-button" onclick="pushValue(5)">5</button>
+				<button class="calc-button" onclick="pushValue(6)">6</button>
+				<button class="calc-button" onclick="pushValue(7)">7</button>
+				<button class="calc-button" onclick="pushValue(8)">8</button>
+				<button class="calc-button" onclick="pushValue(9)">9</button>
+				<button class="calc-button" onclick="pushValue(0)">0</button>
+			</div>
+			<div id="operation-container">
+				<button class="calc-button" onclick="pushValue('+')">+</button>
+				<button class="calc-button" onclick="pushValue('-')">-</button>
+				<button class="calc-button" onclick="pushValue('*')">×</button>
+				<button class="calc-button" onclick="pushValue('/')">÷</button>
+				<button class="calc-button" onclick="pushValue('(')">(</button>
+				<button class="calc-button" onclick="pushValue(')')">)</button>
+				<button class="calc-button" onclick="backspace()">Del</button>
+				<button class="calc-button" onclick="showResult()">=</button>
+				<button class="calc-button" onclick="resetValue()">AC</button>
+			</div>
+			</div>
+		</div>
+		<script src="{{ url_for('static', filename='scripts/project-calculator.js') }}"></script>
+	</body>
+</html>

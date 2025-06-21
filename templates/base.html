@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<link rel="stylesheet" href="{% block stylesheet %}{% endblock %}">
+</head>
+<body>
+	<nav id="base-nav">
+			<p id="base-nav-title-p"><a id="base-nav-title-a" href="{{ url_for('home') }}">My Portfolio</a></p>
+		<!-- <p><a class="base-nav-link" href="{{ url_for('about') }}">About Me</a></p> -->
+		<p><a class="base-nav-link" href="{{ url_for('projects') }}">Projects</a></p>
+	</nav>
+	<div id="base-content">
+		{% block content %}{% endblock %}
+	</div>
+	{% block script %}{% endblock %}
+</body>
+</html>
