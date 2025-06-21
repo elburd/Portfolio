@@ -57,11 +57,12 @@ def get_project_list() -> list[tuple[str]]:
     and completion completed as ``strings``.
     '''
     proj_list: list[tuple[str]] = []
-    with open('project-data.txt') as file:
-        for line in file:
-            if '//' in line:
-                continue
-            name, upload, completed = line.split()
-            project = name.replace('-', ' ').capitalize(), _format_date(upload), completed
-            proj_list.append(project)
-    return proj_list
+    try:
+        with open('project-data.txt') as file:
+            for line in file:
+                if '//' in line:
+                    continue
+                name, upload, completed = line.split()
+                project = name.replace('-', ' ').capitalize(), _format_date(upload), completed
+                proj_list.append(project)
+    except Exception
